@@ -1,0 +1,14 @@
+.am-card-header-extra {
+  flex: 2 1;
+  text-align: right;
+  font-size: 17px;
+  color: #888;
+}
+
+.am-list-item.am-input-item {
+  padding: 0;
+}
+.am-list-line {
+  border: 1px solid #ccc;
+  padding: 15px;
+}

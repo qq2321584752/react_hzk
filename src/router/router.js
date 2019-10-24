@@ -8,6 +8,9 @@ import {
 
 import Login from "../components/login/login.js";
 import Home from "../components/home/home.js";
+import Detail from "../components/detail/detail.js";
+import Calc from "../components/calc/calc.js";
+import Map from "../components/map/map.js";
 
 const AppRouter = () => {
   return (
@@ -17,6 +20,9 @@ const AppRouter = () => {
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route path="/home" component={Home} />
+        <Route path="/detail" component={Detail} />
+        <Route path="/calc" component={Calc} />
+        <Route path="/map" component={Map} />
         <Redirect to="/login" />
       </Switch>
     </Router>

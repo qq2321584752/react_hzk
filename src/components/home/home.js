@@ -20,11 +20,13 @@ class Home extends React.Component {
   }
 
   renderContent(pageText) {
+    // console.log(this.props.history);
+
     // console.log(jsondata_);
 
     switch (pageText) {
       case "main":
-        return <Main />;
+        return <Main history={this.props.history} />;
       case "news":
         return <News />;
       case "chat":

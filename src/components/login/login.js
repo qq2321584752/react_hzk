@@ -15,8 +15,8 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: ""
+      username: "tom",
+      password: "123"
     };
   }
 
@@ -36,14 +36,19 @@ class Login extends React.Component {
         uname: this.state.username,
         pwd: this.state.password
       };
+      // alert(this.state.username);
 
       var {
-        data: {
-          meta: { status, msg }
-        }
+        data: { token },
+        meta: { status, msg }
       } = await axios.post("/users/login", obj);
 
+      console.log(status);
+
       if (status === 200) {
+        // console.log(token);
+        localStorage.setItem("token", token);
+        // localStorage.removeItem("token");
         Toast.success("Load success !!!", 1);
         let { history } = this.props;
         history.push("/home");
