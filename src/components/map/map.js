@@ -140,7 +140,7 @@ class Map extends React.Component {
     var markerClusterer = new BMapLib.MarkerClusterer(map, {
       markers: markers
     });
-    // console.log(markerClusterer);
+    console.log(markerClusterer);
 
     // var map = new BMap.Map("allmap");
     // var point = new BMap.Point(116.331398, 39.897445);

@@ -12,10 +12,11 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: "redTab",
+      selectedTab: "news",
       hidden: false,
       fullScreen: false,
-      jsondata
+      jsondata,
+      title: "新闻"
     };
   }
 
@@ -28,7 +29,7 @@ class Home extends React.Component {
       case "main":
         return <Main history={this.props.history} />;
       case "news":
-        return <News />;
+        return <News title={this.state.title} />;
       case "chat":
         return <Chat />;
       case "mine":
@@ -72,8 +73,10 @@ class Home extends React.Component {
           selected={this.state.selectedTab === `${item.key}`}
           onPress={() => {
             this.setState({
-              selectedTab: `${item.key}`
+              selectedTab: `${item.key}`,
+              title: `${item.title}`
             });
+            // console.log(item.title);
           }}
           data-seed="logId"
         >
