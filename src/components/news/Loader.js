@@ -125,7 +125,8 @@ class Loader extends React.Component {
             <Card.Header
               // title={item.home_name}
               // thumb="https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg"
-              thumb="http://127.0.0.1:8086/public/home.png"
+              // thumb="http://127.0.0.1:8086/public/home.png"
+              thumb="http://47.96.21.88:8086/public/home.png"
               thumbStyle={this.thumbStyle}
               extra={
                 <div>

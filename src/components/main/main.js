@@ -82,7 +82,9 @@ class Main extends Component {
       },
       () => {
         const grid_list = this.state.menu_list.map((item, i) => ({
-          icon: `http://localhost:8086/public/0${item.id}.png`,
+          // icon: `http://localhost:8086/public/0${item.id}.png`,
+          icon: `http://47.96.21.88:8086/public/0${item.id}.png`,
+
           id: item.id,
           text: `${item.menu_name}`
         }));
@@ -168,7 +170,8 @@ class Main extends Component {
             <Card.Header
               title={item2.home_name}
               // thumb="https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg"
-              thumb="http://127.0.0.1:8086/public/home.png"
+              // thumb="http://127.0.0.1:8086/public/home.png"
+              thumb="http://47.96.21.88:8086/public/home.png"
               thumbStyle={this.thumbStyle}
               extra={
                 <div>

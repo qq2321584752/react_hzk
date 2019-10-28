@@ -1,6 +1,8 @@
 import axios from "axios";
 // import { Toast } from "antd-mobile";
-axios.defaults.baseURL = "http://localhost:8086";
+// axios.defaults.baseURL = "http://localhost:8086";
+axios.defaults.baseURL = "http://47.96.21.88:8086";
+
 var token = localStorage.getItem("token");
 // axios.defaults.headers.common["Authorization"] = token;
 // console.log(token);

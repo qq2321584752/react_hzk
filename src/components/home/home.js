@@ -12,7 +12,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: "news",
+      selectedTab: "chat",
       hidden: false,
       fullScreen: false,
       jsondata,
@@ -31,9 +31,9 @@ class Home extends React.Component {
       case "news":
         return <News title={this.state.title} />;
       case "chat":
-        return <Chat />;
+        return <Chat title={this.state.title} />;
       case "mine":
-        return <Mine />;
+        return <Mine title={this.state.title} />;
       default:
     }
     // console.log(pageText);

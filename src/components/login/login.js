@@ -39,15 +39,21 @@ class Login extends React.Component {
       // alert(this.state.username);
 
       var {
-        data: { token },
+        data,
         meta: { status, msg }
       } = await axios.post("/users/login", obj);
 
-      console.log(status);
-
+      // console.log(status);
+      // console.log(
+      //   token ==
+      //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1SWQiOjEsImlhdCI6MTU3MjA1OTQ5MCwiZXhwIjoxNTcyNjY0MjkwfQ.RIffD_yUX8ebN8_cS_jFjtvfYvSepvP4rYIKRkGuqnU",
+      //   1231231231231
+      // );
       if (status === 200) {
-        // console.log(token);
-        localStorage.setItem("token", token);
+        // console.log(data.uid);
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("uid", data.uid);
+        // localStorage.setItem("uid", token);
         // localStorage.removeItem("token");
         Toast.success("Load success !!!", 1);
         let { history } = this.props;
