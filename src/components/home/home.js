@@ -12,7 +12,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: "chat",
+      selectedTab: "main",
       hidden: false,
       fullScreen: false,
       jsondata,
@@ -27,7 +27,9 @@ class Home extends React.Component {
 
     switch (pageText) {
       case "main":
-        return <Main history={this.props.history} />;
+        // return <Main history={this.props.history} />;
+        return <Main />;
+
       case "news":
         return <News title={this.state.title} />;
       case "chat":

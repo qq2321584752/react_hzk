@@ -30,13 +30,15 @@ const Chatlist = props => {
   });
   return list;
 };
+
 class ChatWindow extends Component {
   constructor(props) {
     super(props);
     this.state = {
       list: [],
       chat_msg: "abc",
-      client: null
+      client: null,
+      source: {}
     };
   }
   backtochat = () => {
@@ -48,16 +50,40 @@ class ChatWindow extends Component {
 
   componentDidMount = async () => {
     console.log(this.props.item);
-    let { from_user, to_user } = this.props.item;
-    let {
-      data: { list }
-    } = await axios.post("/chats/info", {
-      from_user,
-      to_user
-    });
+    var CancelToken = axios.CancelToken;
+    var source = CancelToken.source();
     this.setState({
-      list
+      source
     });
+    let { from_user, to_user } = this.props.item;
+    // let {
+    //   data: { list }
+    // } = await axios.post("/chats/info", {
+    //   from_user,
+    //   to_user
+    //   // cancelToken: source.token
+    // });
+
+    axios({
+      method: "POST",
+      url: "/chats/info",
+      // !发送请求的 时候 携带标识 ，用于 取消操作 的捕捉
+      cancelToken: source.token,
+      data: { from_user, to_user }
+    })
+      .then(data => {
+        // console.log(res.data);
+        let {
+          data: { list }
+        } = data;
+        this.setState({
+          list
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    // console.log(list);
 
     let uid = localStorage.getItem("uid");
     // 建立连接之后 会持续监听 数据 的 传输操作，ws会调用函数，传递实参过来
@@ -74,6 +100,18 @@ class ChatWindow extends Component {
       client
     });
     // console.log(this.state.list);
+  };
+
+  componentWillUnmount = () => {
+    // var CancelToken = axios.CancelToken;
+    // var source = CancelToken.source();
+    // !在组件 销毁的 时候 将还未加载完 尚未 返回的 http请求 取消，以防内存溢出
+    this.state.source.cancel("这里你可以输出一些信息，可以在catch中拿到");
+    console.log("销毁了", this.state.source);
+
+    this.setState = () => {
+      return;
+    };
   };
   // 聊天关闭
   closeChat = () => {

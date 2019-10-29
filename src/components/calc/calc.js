@@ -77,6 +77,12 @@ class Calc extends Component {
       }
     };
   }
+  componentWillUnmount() {
+    this.setState = () => {
+      return;
+    };
+  }
+
   back_pev = () => {
     var { history } = this.props;
     history.goBack();

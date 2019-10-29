@@ -12,7 +12,7 @@ class Chat extends Component {
       item: {}
     };
   }
-  async componentWillMount() {
+  async UNSAFE_componentWillMount() {
     let {
       data: { list }
     } = await axios.post("/chats/list");
@@ -21,11 +21,16 @@ class Chat extends Component {
     });
     console.log(list);
   }
-  componentWillUnmount = () => {
-    this.setState = (state, callback) => {
+  // componentWillUnmount = () => {
+  //   this.setState = (state, callback) => {
+  //     return;
+  //   };
+  // };
+  componentWillUnmount() {
+    this.setState = () => {
       return;
     };
-  };
+  }
   showChatwindow = item => {
     this.setState({
       isLocked: true,

@@ -4,6 +4,7 @@ import axios from "axios";
 axios.defaults.baseURL = "http://47.96.21.88:8086";
 
 var token = localStorage.getItem("token");
+
 // axios.defaults.headers.common["Authorization"] = token;
 // console.log(token);
 // Add a request interceptor

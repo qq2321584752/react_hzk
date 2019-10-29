@@ -10,6 +10,7 @@ import {
 } from "antd-mobile";
 import "./main.css";
 import axios from "../http.js";
+import { withRouter } from "react-router";
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -100,6 +101,11 @@ class Main extends Component {
     // console.log(this.state);
   }
 
+  componentWillUnmount() {
+    this.setState = () => {
+      return;
+    };
+  }
   // 切割数组方法
   sp_arr = (arr, ...rest) => {
     let a = [];
@@ -305,4 +311,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default withRouter(Main);

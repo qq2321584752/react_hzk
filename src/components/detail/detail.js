@@ -9,6 +9,12 @@ class Detail extends Component {
       cur_house: []
     };
   }
+
+  componentWillUnmount() {
+    this.setState = () => {
+      return;
+    };
+  }
   async componentDidMount() {
     // console.log(this.props);
     // 根据父元素传来的id查找数据
@@ -47,7 +53,8 @@ class Detail extends Component {
           <Card.Header
             // title={item.home_name}
             // thumb="https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg"
-            thumb="http://127.0.0.1:8086/public/home.png"
+            // thumb="http://127.0.0.1:8086/public/home.png"
+            thumb="http://47.96.21.88:8086/public/home.png"
             thumbStyle={this.thumbStyle}
             extra={
               <div>

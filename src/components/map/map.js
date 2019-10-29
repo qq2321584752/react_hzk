@@ -85,6 +85,11 @@ class Map extends React.Component {
   componentDidMount() {
     this.init_map();
   }
+  componentWillUnmount() {
+    this.setState = () => {
+      return;
+    };
+  }
   back_pev = () => {
     // console.log(this.props);
 

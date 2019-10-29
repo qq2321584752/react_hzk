@@ -51,7 +51,7 @@ class Loader extends React.Component {
     }
   };
 
-  async componentWillMount() {
+  async componentDidMount() {
     this.getdata();
     // console.log(data, total);
   }
